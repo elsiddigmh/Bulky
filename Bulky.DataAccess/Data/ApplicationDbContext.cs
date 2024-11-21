@@ -15,10 +15,42 @@ namespace Bulky.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Company>().HasData(
+                new Company { 
+                    Id = 1,
+                    Name = "Metasoft",
+                    City = "Riyadh",
+                    State = "East",
+                    PhoneNumber = "+9662488551239",
+                    StreetAddress = "Aish-bnt-ababkr",
+                    PostalCode = "20056"
+                },
+                new Company { 
+                    Id = 2,
+                    Name = "Elm",
+                    City = "Riyadh",
+                    State = "East",
+                    PhoneNumber = "+9662488221239",
+                    StreetAddress = "Aldaree",
+                    PostalCode = "46560"
+                },
+                new Company
+                {
+                    Id = 3,
+                    Name = "Bank Alblad",
+                    City = "Riyadh",
+                    State = "East",
+                    PhoneNumber = "+9662411551239",
+                    StreetAddress = "Aba-hanifa",
+                    PostalCode = "20389"
+                }
+            );
+
             modelBuilder.Entity<Category>().HasData(
                new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                new Category { Id = 2, Name = "SiFi", DisplayOrder = 2 },
