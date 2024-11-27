@@ -47,13 +47,16 @@ namespace BulkyWeb.Areas.Customer.Controllers
             if (cartFromDb != null) {
                 // Cart exsisting in DB
                 cartFromDb.Count += shoppingCart.Count;
-                //_unitOfWork.ShoppingCart.Update(cartFromDb);
+                _unitOfWork.ShoppingCart.Update(cartFromDb);
             }
             else
             {
                 // Add cart record
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
             }
+
+            TempData["success"] = "Cart updated successfully";
+
             _unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
