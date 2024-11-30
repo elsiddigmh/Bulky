@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace Bulky.DataAccess.Repository
 {
-    public class CategoryRepository : Repository<Category> ,ICategoryRepository
+    public class OrderHeaderRepository : Repository<OrderHeader> ,IOrderHeaderRepository
     {
         private readonly ApplicationDbContext _db;
-        public CategoryRepository(ApplicationDbContext db) : base(db)
+        public OrderHeaderRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public void Update(Category category)
+        public void Update(OrderHeader orderHeader)
         {
-            _db.Categories.Update(category);
+            _db.OrderHeaders.Update(orderHeader);
         }
     }
 }
