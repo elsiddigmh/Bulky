@@ -105,7 +105,9 @@ bg-success {
 /* btn-outline-primary */
 
 
-
+.btn{
+    text-transform:uppercase;
+}
 .btn-outline-primary {
     color: #192E2F;
     border-color: #192E2F;
