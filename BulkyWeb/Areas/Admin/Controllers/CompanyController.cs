@@ -21,8 +21,8 @@ namespace BulkyWeb.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            List<Company> Companys = _unitOfWork.Company.GetAll().ToList();
-            return View(Companys);
+            List<Company> Companies = _unitOfWork.Company.GetAll().ToList();
+            return View(Companies);
         }
 
         public IActionResult Upsert(int? id)
