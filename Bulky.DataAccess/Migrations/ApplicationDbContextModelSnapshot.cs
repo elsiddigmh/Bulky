@@ -112,18 +112,18 @@ namespace Bulky.DataAccess.Migrations
                             Name = "Elm",
                             PhoneNumber = "+9662488221239",
                             PostalCode = "46560",
-                            State = "East",
-                            StreetAddress = "Aldaree"
+                            State = "North",
+                            StreetAddress = "Aba-hanifa"
                         },
                         new
                         {
                             Id = 3,
                             City = "Riyadh",
-                            Name = "Bank Alblad",
+                            Name = "Riyadh Bank",
                             PhoneNumber = "+9662411551239",
                             PostalCode = "20389",
                             State = "East",
-                            StreetAddress = "Aba-hanifa"
+                            StreetAddress = "King-Fahd"
                         });
                 });
 
@@ -281,6 +281,32 @@ namespace Bulky.DataAccess.Migrations
                         new
                         {
                             Id = 1,
+                            Author = "J.D. Salinger",
+                            CategoryId = 2,
+                            Description = "The Catcher in the Rye by J.D. Salinger\r\nA coming-of-age novel about Holden Caulfield, a disillusioned teenager who narrates his experiences after being expelled from school. Through his journey in New York City, the story explores themes of alienation, loss of innocence, and the challenges of growing up in a superficial world.\r\n\r\n",
+                            ISBN = "SWD7799001",
+                            ListPrice = 50.0,
+                            Price = 45.0,
+                            Price100 = 35.0,
+                            Price50 = 40.0,
+                            Title = "The Catcher in the Rye"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Author = "J.K. Rowling",
+                            CategoryId = 3,
+                            Description = "Harry Potter and the Cursed Child by J.K. Rowling, John Tiffany, and Jack Thorne\r\nA stage play and sequel to the original Harry Potter series, this story focuses on Harry's son, Albus Potter, as he struggles with the weight of his family’s legacy. Through time-travel adventures, the play explores themes of family, friendship, and the consequences of altering the past.",
+                            ISBN = "SWD2299001",
+                            ListPrice = 60.0,
+                            Price = 55.0,
+                            Price100 = 45.0,
+                            Price50 = 50.0,
+                            Title = "Harry Potter"
+                        },
+                        new
+                        {
+                            Id = 3,
                             Author = "Billy Spark",
                             CategoryId = 1,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -293,7 +319,46 @@ namespace Bulky.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 2,
+                            Id = 4,
+                            Author = "Antoine de",
+                            CategoryId = 2,
+                            Description = "The Little Prince by Antoine de Saint-Exupéry\r\nThis philosophical tale follows a pilot stranded in the desert who meets a young prince from another planet. Through their conversations, the story delves into themes of love, friendship, loneliness, and the importance of looking beyond appearances to understand the world and human relationships.\r\n\r\n\r\n",
+                            ISBN = "SWD9339001",
+                            ListPrice = 35.0,
+                            Price = 30.0,
+                            Price100 = 20.0,
+                            Price50 = 25.0,
+                            Title = "The Little Prince"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Author = "Aldous Huxley",
+                            CategoryId = 1,
+                            Description = "Brave New World by Aldous Huxley\r\nA dystopian novel set in a future society driven by technological and scientific advancements, where humans are genetically engineered, emotions are suppressed, and individuality is discouraged. The story explores themes of conformity, freedom, and the cost of a utopian world controlled by artificial happiness.\r\n\r\n",
+                            ISBN = "SWD9449001",
+                            ListPrice = 45.0,
+                            Price = 40.0,
+                            Price100 = 30.0,
+                            Price50 = 35.0,
+                            Title = "Brave New World"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Author = "Billy Spark",
+                            CategoryId = 1,
+                            Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
+                            ISBN = "SWD9999001",
+                            ListPrice = 99.0,
+                            Price = 90.0,
+                            Price100 = 80.0,
+                            Price50 = 85.0,
+                            Title = "Fortune of Time"
+                        },
+                        new
+                        {
+                            Id = 7,
                             Author = "Nancy Hoover",
                             CategoryId = 1,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -306,7 +371,7 @@ namespace Bulky.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 3,
+                            Id = 8,
                             Author = "Julian Button",
                             CategoryId = 2,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -319,7 +384,7 @@ namespace Bulky.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 9,
                             Author = "Abby Muscles",
                             CategoryId = 3,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -332,7 +397,7 @@ namespace Bulky.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 10,
                             Author = "Ron Parker",
                             CategoryId = 1,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -345,7 +410,7 @@ namespace Bulky.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 11,
                             Author = "Laura Phantom",
                             CategoryId = 2,
                             Description = "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ",
@@ -355,6 +420,19 @@ namespace Bulky.DataAccess.Migrations
                             Price100 = 20.0,
                             Price50 = 22.0,
                             Title = "Leaves and Wonders"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Author = "by Maya Angelou",
+                            CategoryId = 3,
+                            Description = "I Know Why the Caged Bird Sings by Maya Angelou\r\nThis autobiographical memoir recounts Maya Angelou's early life, detailing her struggles with racism, identity, and trauma as a Black girl growing up in the segregated South. Through powerful prose, Angelou explores themes of resilience, self-discovery, and the triumph of the human spirit in the face of adversity.\r\n",
+                            ISBN = "FOA078000001",
+                            ListPrice = 34.0,
+                            Price = 29.0,
+                            Price100 = 20.0,
+                            Price50 = 25.0,
+                            Title = "I Know Why the Caged Bird Sings"
                         });
                 });
 

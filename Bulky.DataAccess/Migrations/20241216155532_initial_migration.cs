@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Bulky.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class initial_migration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -142,6 +142,26 @@ namespace Bulky.DataAccess.Migrations
                         column: x => x.CompanyId,
                         principalTable: "Companies",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductImages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductImages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ProductImages_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -330,8 +350,8 @@ namespace Bulky.DataAccess.Migrations
                 values: new object[,]
                 {
                     { 1, "Riyadh", "Metasoft", "+9662488551239", "20056", "East", "Aish-bnt-ababkr" },
-                    { 2, "Riyadh", "Elm", "+9662488221239", "46560", "East", "Aldaree" },
-                    { 3, "Riyadh", "Bank Alblad", "+9662411551239", "20389", "East", "Aba-hanifa" }
+                    { 2, "Riyadh", "Elm", "+9662488221239", "46560", "North", "Aba-hanifa" },
+                    { 3, "Riyadh", "Riyadh Bank", "+9662411551239", "20389", "East", "King-Fahd" }
                 });
 
             migrationBuilder.InsertData(
@@ -339,12 +359,18 @@ namespace Bulky.DataAccess.Migrations
                 columns: new[] { "Id", "Author", "CategoryId", "Description", "ISBN", "ListPrice", "Price", "Price100", "Price50", "Title" },
                 values: new object[,]
                 {
-                    { 1, "Billy Spark", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "SWD9999001", 99.0, 90.0, 80.0, 85.0, "Fortune of Time" },
-                    { 2, "Nancy Hoover", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "CAW777777701", 40.0, 30.0, 20.0, 25.0, "Dark Skies" },
-                    { 3, "Julian Button", 2, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "RITO5555501", 55.0, 50.0, 35.0, 40.0, "Vanish in the Sunset" },
-                    { 4, "Abby Muscles", 3, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "WS3333333301", 70.0, 65.0, 55.0, 60.0, "Cotton Candy" },
-                    { 5, "Ron Parker", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "SOTJ1111111101", 30.0, 27.0, 20.0, 25.0, "Rock in the Ocean" },
-                    { 6, "Laura Phantom", 2, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "FOT000000001", 25.0, 23.0, 20.0, 22.0, "Leaves and Wonders" }
+                    { 1, "J.D. Salinger", 2, "The Catcher in the Rye by J.D. Salinger\r\nA coming-of-age novel about Holden Caulfield, a disillusioned teenager who narrates his experiences after being expelled from school. Through his journey in New York City, the story explores themes of alienation, loss of innocence, and the challenges of growing up in a superficial world.\r\n\r\n", "SWD7799001", 50.0, 45.0, 35.0, 40.0, "The Catcher in the Rye" },
+                    { 2, "J.K. Rowling", 3, "Harry Potter and the Cursed Child by J.K. Rowling, John Tiffany, and Jack Thorne\r\nA stage play and sequel to the original Harry Potter series, this story focuses on Harry's son, Albus Potter, as he struggles with the weight of his family’s legacy. Through time-travel adventures, the play explores themes of family, friendship, and the consequences of altering the past.", "SWD2299001", 60.0, 55.0, 45.0, 50.0, "Harry Potter" },
+                    { 3, "Billy Spark", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "SWD9999001", 99.0, 90.0, 80.0, 85.0, "Fortune of Time" },
+                    { 4, "Antoine de", 2, "The Little Prince by Antoine de Saint-Exupéry\r\nThis philosophical tale follows a pilot stranded in the desert who meets a young prince from another planet. Through their conversations, the story delves into themes of love, friendship, loneliness, and the importance of looking beyond appearances to understand the world and human relationships.\r\n\r\n\r\n", "SWD9339001", 35.0, 30.0, 20.0, 25.0, "The Little Prince" },
+                    { 5, "Aldous Huxley", 1, "Brave New World by Aldous Huxley\r\nA dystopian novel set in a future society driven by technological and scientific advancements, where humans are genetically engineered, emotions are suppressed, and individuality is discouraged. The story explores themes of conformity, freedom, and the cost of a utopian world controlled by artificial happiness.\r\n\r\n", "SWD9449001", 45.0, 40.0, 30.0, 35.0, "Brave New World" },
+                    { 6, "Billy Spark", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "SWD9999001", 99.0, 90.0, 80.0, 85.0, "Fortune of Time" },
+                    { 7, "Nancy Hoover", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "CAW777777701", 40.0, 30.0, 20.0, 25.0, "Dark Skies" },
+                    { 8, "Julian Button", 2, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "RITO5555501", 55.0, 50.0, 35.0, 40.0, "Vanish in the Sunset" },
+                    { 9, "Abby Muscles", 3, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "WS3333333301", 70.0, 65.0, 55.0, 60.0, "Cotton Candy" },
+                    { 10, "Ron Parker", 1, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "SOTJ1111111101", 30.0, 27.0, 20.0, 25.0, "Rock in the Ocean" },
+                    { 11, "Laura Phantom", 2, "Praesent vitae sodales libero. Praesent molestie orci augue, vitae euismod velit sollicitudin ac. Praesent vestibulum facilisis nibh ut ultricies.\r\n\r\nNunc malesuada viverra ipsum sit amet tincidunt. ", "FOT000000001", 25.0, 23.0, 20.0, 22.0, "Leaves and Wonders" },
+                    { 12, "by Maya Angelou", 3, "I Know Why the Caged Bird Sings by Maya Angelou\r\nThis autobiographical memoir recounts Maya Angelou's early life, detailing her struggles with racism, identity, and trauma as a Black girl growing up in the segregated South. Through powerful prose, Angelou explores themes of resilience, self-discovery, and the triumph of the human spirit in the face of adversity.\r\n", "FOA078000001", 34.0, 29.0, 20.0, 25.0, "I Know Why the Caged Bird Sings" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -407,6 +433,11 @@ namespace Bulky.DataAccess.Migrations
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductImages_ProductId",
+                table: "ProductImages",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
@@ -437,6 +468,9 @@ namespace Bulky.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "OrderDetails");
+
+            migrationBuilder.DropTable(
+                name: "ProductImages");
 
             migrationBuilder.DropTable(
                 name: "ShoppingCarts");
